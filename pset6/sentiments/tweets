@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+import sys
+import helpers
+import nltk
+from termcolor import colored
+from analyzer import Analyzer
+
+class Tweets():
+    """Get a tweet and annalyze the content."""
+
+    def __init__(self):
+        """Initialize Tweets."""
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./smile word")
+
+    total_tweets = (helpers.get_user_timeline(sys.argv[1], count=200))
+
+    # Initializeer de nltk class en Analyzer
+    tokenizer = nltk.tokenize.TweetTokenizer()
+    analyzer = Analyzer('positive-words.txt', 'negative-words.txt')
+
+    # Hier kijken naar de "blokken" tweets en ze 1 voor 1 analyzeren
+    for array in total_tweets:
+        sentiment = 0
+        tweet = tokenizer.tokenize(array)
+
+        for words in tweet:
+            if analyzer.analyze(words) > 0.0:
+                sentiment += 1
+            elif analyzer.analyze(words) < 0.0:
+                sentiment -= 1
+
+        if sentiment > 0.0:
+            print(colored(sentiment, "green"), end=' ')
+            print(colored(array, "green"))
+        elif sentiment < 0.0:
+            print(colored(sentiment, "red"), end=' ')
+            print(colored(array, "red"))
+        else:
+            print(colored(sentiment, "yellow"), end=' ')
+            print(colored(array, "yellow"))
+
+
+

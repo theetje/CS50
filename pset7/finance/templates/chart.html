@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chart of the portfolio
+{% endblock %}
+
+{% block main %}
+<div>
+    <p>
+        A chart of the portfolio
+    </p>
+</div>
+{{ chart | safe }}
+{% endblock %}

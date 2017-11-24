@@ -1,0 +1,22 @@
+<!--
+error.html
+Door: Thomas de Lange
+
+Student Nummer: 11067632
+
+Kleine error view om duidelijk te maken waar de fout zit
+-->
+
+{% block title %}
+    <p>
+        An error has occures.
+    </p>
+{% endblock %}
+
+{% block main %}
+<div>
+    <p>
+        ERROR: {{ error_msg }}
+    </p>
+</div>
+{% endblock %}
