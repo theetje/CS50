@@ -6,4 +6,4 @@ Demanding, but definitely doable. Social, but educational. A focused topic, but 
 
 ## Author
 
-* **Thomas de Lange** - *WIP* - [www.long-coding.nl](http://www.long-coding.nl/)
+* **Thomas de Lange**  - [www.long-coding.nl](http://www.long-coding.nl/)
